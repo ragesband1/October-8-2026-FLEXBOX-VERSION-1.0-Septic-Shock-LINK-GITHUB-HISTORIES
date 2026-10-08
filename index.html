@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PAST PERMANENT - 49 LINKS COMBINED</title>
+<style>
+body {
+  margin: 0; padding: 0;
+  height: 100vh; width: 100vw;
+  overflow: hidden;
+  background: black;
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+.background {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: url('1.jpg');
+  background-size: cover; background-position: center;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  filter: contrast(1.2) saturate(1.4) brightness(1.1);
+}
+.gradient-overlay {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255,0,255,0.4);
+  animation: bodyGradient 2.5s infinite linear, septicFlash 0.2s infinite;
+  z-index: 2;
+}
+.border {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  box-sizing: border-box;
+  border: 12px solid transparent;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(45deg,magenta,deeppink,red,purple);
+  border-image-repeat: stretch;
+  animation: borderPulse 0.7s infinite, septicShock 0.12s infinite;
+  z-index: 3;
+}
+@keyframes septicShock {
+  0% { transform: translate(0,0) }
+  15% { transform: translate(-3px,2px) skew(1.5deg) }
+  30% { transform: translate(3px,-2px) skew(-1.5deg) }
+  100% { transform: translate(0,0) }
+}
+@keyframes septicFlash {
+  0%,90%,100% { opacity: 1 }
+  95% { opacity: 0.8; filter: brightness(2) }
+}
+@keyframes bodyGradient {
+  0% { filter: hue-rotate(0deg) }
+  100% { filter: hue-rotate(360deg) }
+}
+@keyframes borderPulse {
+  0% { border-color: magenta }
+  50% { border-color: cyan }
+  100% { border-color: magenta }
+}
+.grid-container {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  display: grid;
+  grid-template-columns: repeat(10, 80px);
+  grid-template-rows: repeat(5, 80px);
+  gap: 10px;
+  z-index: 10;
+}
+.box {
+  width: 80px; height: 80px;
+  display: flex; justify-content: center; align-items: center;
+  background: transparent;
+  border: 3px solid transparent;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 9px; font-weight: 900;
+  color: white;
+  animation: neonBlink 1s infinite alternate;
+  box-shadow: inset 0 0 0 3px var(--neon-color,magenta),
+              0 0 10px var(--neon-color),
+              0 0 20px var(--neon-color);
+  text-align: center;
+  word-break: break-all;
+}
+@keyframes neonBlink {
+  0% { text-shadow: 0 0 10px cyan }
+  100% { text-shadow: 0 0 20px magenta }
+}
+.box:nth-child(odd) { --neon-color: magenta }
+.box:nth-child(even) { --neon-color: cyan }
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+.modal-content {
+  background: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%; max-width: 450px;
+  position: relative;
+  text-align: center;
+}
+.close {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 28px; font-weight: bold;
+  cursor: pointer;
+}
+.link-button {
+  display: inline-block;
+  background: blue;
+  color: #fff;
+  padding: 12px 24px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: 900;
+  min-width: 120px;
+  text-decoration: none;
+  word-break: break-all;
+}
+.browse-box {
+  border: 4px solid lime;
+  box-shadow: 0 0 20px lime;
+}
+</style>
+</head>
+<body>
+
+<div class="background"></div>
+<div class="gradient-overlay"></div>
+<div class="border"></div>
+<div class="grid-container" id="grid"></div>
+
+<!-- DIALOG 1 -->
+<div id="myModal" class="modal">
+  <div class="modal-content" id="modalContent">
+    <span class="close" onclick="closeAll()">×</span>
+    <p>CLICK THIS LINK HERE:</p>
+    <a id="linkBtn" href="#" target="_blank" class="link-button">No Link</a>
+  </div>
+</div>
+
+<!-- DIALOG 2 - BROWSE MAIN -->
+<div id="browseModal" class="modal">
+  <div class="modal-content browse-box">
+    <span class="close" onclick="closeAll()">×</span>
+    <p style="font-weight:900;font-size:18px;color:blue;">BROWSING MAIN PAGE...</p>
+    <p>Septic Shock Main</p>
+    <button class="link-button" style="background:lime;color:black;" onclick="goMain()">GO TO MAIN</button>
+  </div>
+</div>
+
+<script>
+let index = 1;
+const bg = document.querySelector('.background');
+setInterval(() => {
+  bg.style.opacity = 0;
+  setTimeout(() => {
+    bg.style.backgroundImage = `url('${index}.jpg')`;
+    bg.style.opacity = 1;
+    index = (index % 13) + 1;
+  }, 400);
+}, 2000);
+
+// 49 LINKS COMBINED
+const links = [
+  "https://ragesband1.github.io/September-21-2026-Fireworks-Flash-Splash-Smash-Boom-Tennis-2/",
+  "https://ragesband1.github.io/September-21-2026-Cyborg-vs-Aliens-Neon-War/",
+  "https://ragesband1.github.io/September-21-2026-The-Curse-in-Spaceship-Down-to-Earth/",
+  "https://ragesband1.github.io/September-22-2026-2026-GAMES/",
+  "https://ragesband1.github.io/September-22-2026-2026-Neon-Game-Titles/",
+  "https://ragesband1.github.io/September-22-2026-FLEXBOX-VERSION-12.0-LINK-GITHUB-HISTORIES-/",
+  "https://ragesband1.github.io/October-2-2026-1.-An-Active-And-A-Brave/",
+  "https://ragesband1.github.io/October-2-2026-2.-The-World-Without-Gold-/",
+  "https://ragesband1.github.io/October-2-2026-3.-Trial-And-Error/",
+  "https://ragesband1.github.io/October-2-2026-4.-A-Severe-Intention/",
+  "https://ragesband1.github.io/October-2-2026-5.-Serkaya-A-Psychiatrist/",
+  "https://ragesband1.github.io/October-2-2026-6.-Mafia-Lyndon/",
+  "https://ragesband1.github.io/October-2-2026-7.-The-Persecution/",
+  "https://ragesband1.github.io/October-2-2026-8.-The-Legend-Of-Rock-N-Roll/",
+  "https://ragesband1.github.io/October-2-2026-9.-The-Martyrdom/",
+  "https://ragesband1.github.io/October-3-2026-10.-The-Piper-For-Hamilton---3D-Action-RPG/",
+  "https://ragesband1.github.io/October-3-2026-11.-The-Pretender/",
+  "https://ragesband1.github.io/October-3-2026-12.-The-Telephone-Death---3D-RPG/",
+  "https://ragesband1.github.io/October-3-2026-13.-Amos-And-Boris---3D-RPG-Game/",
+  "https://ragesband1.github.io/October-3-2026-14.-The-Eating-Hair---3D-Action-RPG/",
+  "https://ragesband1.github.io/October-3-2026-15.-With-A-Miracle---3D-Action-RPG/",
+  "https://ragesband1.github.io/October-3-2026-16.-The-Bull-Fight---3D-Action-RPG/",
+  "https://ragesband1.github.io/October-3-2026-17.-The-Human-Aid/",
+  "https://ragesband1.github.io/October-3-2026-18.-The-Invisible-Man---3D-Sci-Fi-RPG/",
+  "https://ragesband1.github.io/October-3-2026-19.-Welcome-To-The-Black-Parade/",
+  "https://ragesband1.github.io/October-3-2026-20.-The-Curse-Of-Madress---3D-RPG/",
+  "https://ragesband1.github.io/October-4-2026-21.-Legend-Of-The-Sea-Horse---3D-RPG/",
+  "https://ragesband1.github.io/October-4-2026-22.-The-Life-Of-Sandara-Park---3D-RPG/",
+  "https://ragesband1.github.io/October-4-2026-23.-Wake-Me-Up-When-September-Ends---3D-Story-RPG/",
+  "https://ragesband1.github.io/October-4-2026-24.-The-Eye-Of-The-Tiger---3D-Action-RPG/",
+  "https://ragesband1.github.io/October-4-2026-25.-The-Gulliver-s-Travel/",
+  "https://ragesband1.github.io/October-4-2026-26.-The-Kangaroo-Jack/",
+  "https://ragesband1.github.io/October-4-2026-27.-Hawkeye-Vs.-Robinhood/",
+  "https://ragesband1.github.io/October-4-2026-Invideo-AI-Highschool-Bedtime-Stories-2017-2020-Year-2026-GAMES/",
+  "https://ragesband1.github.io/October-4-2026-Chapter-1---The-Legend-Of-The-Beast/",
+  "https://ragesband1.github.io/October-4-2026-Chapter-2---No-More-Escape/",
+  "https://ragesband1.github.io/October-4-2026-Chapter-3---The-Book-Of-No-One/",
+  "https://ragesband1.github.io/October-4-2026-Chapter-4---Go-And-Go-Until-You-Die/",
+  "https://ragesband1.github.io/October-4-2026-Chapter-5---Life-Of-A-Story-Writer/",
+  "https://ragesband1.github.io/October-4-2026-Chapter-6---Life-Can-t-Be-Measured-As-A-Doubt/",
+  "https://ragesband1.github.io/October-4-2026-Chapter-7---Pet-Lover/",
+  "https://ragesband1.github.io/October-4-2026-Chapter-8---Love-Is-Gold/",
+  "https://ragesband1.github.io/October-4-2026-Chapter-9---Dying-Days-Of-Chocolate/",
+  "https://ragesband1.github.io/October-4-2026-Chapter-10---The-Surviving-Centennials/",
+  "https://ragesband1.github.io/October-4-2026-Chapter-11---Love-Of-Things-May-Broken/",
+  "https://ragesband1.github.io/October-4-2026-Chapter-12-Bedtime-Stories---Stalk-Or-Die/",
+  "https://ragesband1.github.io/October-4-2026-Chapter-13---Man-On-A-Wire/",
+  "https://ragesband1.github.io/October-4-2026-Chapter-14---Biography/",
+  "https://ragesband1.github.io/October-4-2026-Chapter-15---Death-Of-The-Tourist-Spot-Guy/"
+];
+
+const container = document.getElementById('grid');
+
+// 49 BOXES + 1 SEPTIC SHOCK MAIN = 50 BOXES
+for (let i = 0; i < 49; i++) {
+  let b = document.createElement('div');
+  b.className = 'box';
+  b.innerText = 'Septic Shock ' + (i+1);
+  b.onclick = () => showDialog(links[i]);
+  container.appendChild(b);
+}
+// 50th box = MAIN BROWSE
+let lastBox = document.createElement('div');
+lastBox.className = 'box';
+lastBox.innerText = 'Septic Shock MAIN';
+lastBox.style.setProperty('--neon-color','lime');
+lastBox.onclick = () => showDialog("");
+container.appendChild(lastBox);
+
+function showDialog(link) {
+  const modal = document.getElementById('myModal');
+  const content = document.getElementById('modalContent');
+  modal.style.display = 'block';
+  if (link && link !== "") {
+    content.innerHTML = `
+      <span class="close" onclick="closeAll()">×</span>
+      <p>CLICK THIS LINK HERE:</p>
+      <a href="${link}" target="_blank" class="link-button">${link}</a>
+    `;
+  } else {
+    content.innerHTML = `
+      <span class="close" onclick="closeAll()">×</span>
+      <p>CLICK THIS LINK HERE:</p>
+      <button class="link-button" id="noLinkBtn">No Link</button>
+    `;
+    setTimeout(() => {
+      document.getElementById('noLinkBtn').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('myModal').style.display = 'none';
+        document.getElementById('browseModal').style.display = 'block';
+        window.open(window.location.href, '_blank');
+      });
+    }, 100);
+  }
+}
+
+function closeAll() {
+  document.getElementById('myModal').style.display = 'none';
+  document.getElementById('browseModal').style.display = 'none';
+}
+
+function goMain() {
+  closeAll();
+  window.open(window.location.href, '_blank');
+}
+
+window.onclick = (e) => {
+  if (e.target === document.getElementById('myModal')) {
+    document.getElementById('myModal').style.display = 'none';
+  }
+  if (e.target === document.getElementById('browseModal')) {
+    closeAll();
+  }
+};
+</script>
+
+</body>
+</html>
